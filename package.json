@@ -1,0 +1,19 @@
+{
+  "name": "api-rest-admin",
+  "version": "1.0.0",
+  "description": "Api Rest creada para escalar aplicaciones, de manera de tener aislado el desarrollo y la API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spro80/apiRestAdmin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spro80/apiRestAdmin/issues"
+  },
+  "homepage": "https://github.com/spro80/apiRestAdmin#readme"
+}
