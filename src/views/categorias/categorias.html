@@ -1,0 +1,31 @@
+<html>
+	
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Node JS 2017</title>
+</head>
+
+<body>
+	
+	Cargando pagina GET categorias...
+
+    <div>
+		<div> Nro </div>
+		<div> Categoria </div>
+		<div> Descripcion </div>
+		<div> Vigencia </div>
+	</div>
+            
+    <div>
+        <%for(var i=0; i<data.length; i++) {%>
+			<div> <%=(i+1)%>  </div>
+			<div> <%=data[i].id_categoria%>  </div>
+			<div> <%=data[i].des_categoria%>  </div>
+			<div> <%=data[i].vigencia_categoria%>  </div>
+        <%}%>
+    </div>
+	
+</body>
+
+</html>

@@ -1,19 +1,30 @@
 {
-  "name": "api-rest-admin",
-  "version": "1.0.0",
-  "description": "Api Rest creada para escalar aplicaciones, de manera de tener aislado el desarrollo y la API.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/spro80/apiRestAdmin.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/spro80/apiRestAdmin/issues"
-  },
-  "homepage": "https://github.com/spro80/apiRestAdmin#readme"
+	"name": "api-rest-admin",
+	"version": "1.0.0",
+	"description": "Api Rest creada para escalar aplicaciones, de manera de tener aislado el desarrollo y la API.",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"author": "David Diaz",
+	"license": "ISC",
+	"dependencies": {
+		"ejs": "^2.5.7",
+		"express": "^3.21.2",
+		"mysql": "^2.14.1",
+		"nodemon": "^1.17.3",
+		"winston": "^2.4.1"
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/spro80/apiRestAdmin.git"
+	},
+	"bugs": {
+		"url": "https://github.com/spro80/apiRestAdmin/issues"
+	},
+	"homepage": "https://github.com/spro80/apiRestAdmin#readme",
+	"engines": {
+		"node": "4.1.1"
+	}
 }

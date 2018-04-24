@@ -1,0 +1,26 @@
+{
+  "development": {
+    "SERVERURL": "http://localhost:3001/",
+    "PORT": 3001,
+    "BD": "mysql",
+    "BD_HOST": "localhost",
+    "BD_USER": "spro80",
+    "BD_PASS": "808080",
+    "BD_DATABASE": "carritoresponsive",
+    "TOKEN_SECRET": "tokenDesarrollo",
+    "AMBIENTE" : "desarrollo",
+    "LOG": debug
+  },
+  "production": {
+    "SERVERURL": "https://app.desarrolloweb.com/",
+    "PORT": 3003,
+    "BD": "mysql",
+    "BD_HOST": "us-cdbr-iron-east-05.cleardb.net",
+    "BD_USER": "bdfb4388ca15a4",
+    "BD_PASS": "f5ff3602",
+    "BD_DATABASE": "heroku_6d8ab0ca6d86149",
+    "TOKEN_SECRET": "tokenProduccion",
+    "AMBIENTE" : "produccion",
+    "LOG": : info
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "utst",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testExampleMochaChai.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
