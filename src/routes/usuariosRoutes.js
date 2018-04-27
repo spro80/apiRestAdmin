@@ -90,7 +90,7 @@ module.exports = function ( app ){
 
 		    if( data.length > 0 ){
 
-                        usarioModel.deleteUsuario( id, function(error, data){
+                        usuarioModel.deleteUsuario( id, function(error, data){
 
 			    console.log("error"+error);
 

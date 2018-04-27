@@ -23,7 +23,138 @@ chai.use(chaiHttp);
 const url= 'http://localhost:3001';
 
 
+
+console.log("\n\n TEST PARA PROBAR API REST DE USUARIOS");
+
+
+
+describe('USUARIO: Insert Usuario: ', function(){
+
+
+	    it('USUARIO: Valida Insert del Usuario', function(done){
+
+                let jsonInsert = {
+		    id_usuario:"11111111" ,
+		    id_tipo_cliente: 1,
+                    rut_completo_usuario:"111111112",
+                    password_usuario:"808080",
+                    digito_rut_usuario:2,
+                    nombre_usuario:"juan",
+                    apellido_paterno_usuario:"diaz",
+                    apellido_materno_usuario:"muñoz",
+                    ciudad_usuario:"santiago",
+                    comuna_usuario:"santiago",
+                    direccion_usuario:"avda providencia",
+                    nro_direccion:1500,
+                    celular_usuario:"89194282",
+                    email_usuario:"jdiaz@gmail.com",
+                    whatsap_usuario:"56989194282",
+                    tipo_admin_usuario:1,
+                    vigencia_usuario:1
+		};
+
+                chai.request(url)
+		    .post('/usuario/insert')
+		    .send( jsonInsert )
+		    .end( function(err,res){
+		    
+	                 if( err ){
+	                     console.log("ERROR: "+err);
+ 
+		         }else{
+                             console.log("\n");
+                             console.log("**********INIT - INSERT USUARIO********");
+		             console.log( "res.status: "+res.status );
+                             assert.equal( res.status , 200 );
+                             assert.equal( res.body.result , 0 );
+                             console.log("**********END - INSERT USUARIO********");
+                         }
+	             
+	                 done();
+                     });
+           });
+});
+
+
+
+
+describe('USUARIO: Editar Usuario: ', function(){
+    
+    it('USUARIO: Valida Edicion del Usuario', function(done){
+        let jsonEdit = {
+            "id_tipo_cliente"          : 2,
+	    "password_usuario"         : "qwerty",	
+	    "nombre_usuario"           : "Nombre Modificadoi2222",
+	    "apellido_paterno_usuario" : "Apellido Paterno Modificado",
+            "apellido_materno_usuario" : "Apellido Materno Modificado",
+	    "ciudad_usuario"           : "Ciudad Modificado",
+	    "comuna_usuario"           : "Comuna Modificado",
+	    "direccion_usuario"        : "Direccion Modificado",
+	    "nro_direccion"            : 666,
+	    "celular_usuario"          : "912345678",
+	    "email_usuario"            : "Email Modificado",
+	    "whatsap_usuario"          : "+56912345678",
+	    "tipo_admin_usuario"       : 100,
+	    "vigencia_usuario"         : 101
+        };
+	    
+	    
+                chai.request(url)
+	            .post('/usuario/edit/11111111')
+                    .send( jsonEdit )
+                    .end( function(err,res){
+
+                        if( err ){
+                            console.log("ERROR: "+err);
+                        }else{
+                            console.log("\n");
+                            console.log("**********INIT - EDIT USUARIO********");
+                            console.log( "res.status: "+res.status );
+                            assert.equal( res.status , 200 );
+                            assert.equal( res.body.result , 0 );
+                            console.log("**********END - EDIT  USUARIO********");
+                        }
+                        done();
+                    });
+    });
+
+});
+
+
+
+
+
+
 //https://www.paradigmadigital.com/dev/testeo-api-rest-mocha-chai-http/
+describe('USUARIO - DELETE', function(){
+
+    it('USUARIO - delete usuario by id', function(done){
+        chai.request( url )
+            .get('/usuario/deleteId/11111111')
+	    .end( function(err,res){
+				          
+                if( err != null ){
+		    console.log("ERROR: "+err);
+
+                }else{
+                    console.log("\n");
+	            console.log("**********INIT - DELETE USUARIO");
+                    console.log( "res.status: "+res.status );
+                    assert.equal( res.status , 200, "Valor obtenido es"+ res.status +"y se esperaba un 200" );
+	            assert.equal( res.body.result , 0 , "Valo obtenido es"+ res.body.result +"y se esperaba un 0");
+		    
+	            console.log("**********END - DELETE USUARIO********\n");
+
+                }
+
+		done();
+
+            });
+
+    });
+
+})
+
 
 
 
@@ -43,10 +174,9 @@ describe('USUARIO - GET ALL', function(){
 
 		       console.log("\n");
 		       console.log("**********INIT - GET ALL USUARIO********");
-
+                       console.log( "res.status: "+res.status );
 		       assert.equal( res.status , 200, "Valor obtenido es"+ res.status +"y se esperaba un 200" );
 		       assert.equal( res.body.result , 0 , "Valo obtenido es"+ res.body.result +"y se esperaba un 0");
-
 		       console.log("**********END - GET ALL USUARIO********\n");
 
 		   }
@@ -78,7 +208,7 @@ describe('USUARIO - GET Usuario By ID', function(){
 
 	            console.log("\n");		
                     console.log("**********INIT - GET USUARIO BY ID********");
-
+                    console.log( "res.status: "+res.status );
                     //console.log( res.body );
                     //console.log( res );
                     assert.equal( res.status , 200 );
@@ -89,7 +219,7 @@ describe('USUARIO - GET Usuario By ID', function(){
                     assert.equal( res.body.data_usuario[0].rut_completo_usuario , "145157781" );
                     assert.equal( res.body.data_usuario[0].password_usuario , "123456" );
                     assert.equal( res.body.data_usuario[0].digito_rut_usuario , "1" );
-                    assert.equal( res.body.data_usuario[0].nombre_usuario , "daviddddd" );
+                    assert.equal( res.body.data_usuario[0].nombre_usuario , "david" );
                     assert.equal( res.body.data_usuario[0].apellido_paterno_usuario , "diaz" );
                     assert.equal( res.body.data_usuario[0].apellido_materno_usuario , "sierra" );
                     assert.equal( res.body.data_usuario[0].ciudad_usuario , "santiago" );
@@ -117,15 +247,15 @@ describe('USUARIO - GET Usuario By ID', function(){
 
 
 
-
+/*
 describe('USUARIO: Insert Usuario: ', function(){
 
     let jsonInsert = { 
-                        id_usuario:"15123456" , 
+                        id_usuario:"11111111" , 
 	                id_tipo_cliente: 1, 
-	                rut_completo_usuario:"151234567", 
+	                rut_completo_usuario:"111111112", 
 	                password_usuario:"808080", 
-	                digito_rut_usuario:7, 
+	                digito_rut_usuario:2, 
 	                nombre_usuario:"juan", 
 	                apellido_paterno_usuario:"diaz", 
 	                apellido_materno_usuario:"muñoz", 
@@ -167,7 +297,7 @@ describe('USUARIO: Insert Usuario: ', function(){
             });
     });
 });
-
+*/
 
 
 
