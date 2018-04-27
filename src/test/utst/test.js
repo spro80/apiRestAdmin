@@ -24,7 +24,7 @@ const url= 'http://localhost:3001';
 
 
 
-console.lo("pruebbaaaaa");
+console.lo("prueba heroku 3");
 console.log("\n\n TEST PARA PROBAR API REST DE USUARIOS");
 
 describe('USUARIO: Insert Usuario: ', function(){
