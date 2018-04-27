@@ -24,7 +24,7 @@ const url= 'http://localhost:3001';
 
 
 
-
+console.lo("pruebbaaaaa");
 console.log("\n\n TEST PARA PROBAR API REST DE USUARIOS");
 
 describe('USUARIO: Insert Usuario: ', function(){
