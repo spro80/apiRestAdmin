@@ -81,8 +81,22 @@ usuarioModel.editUsuario = function( id, request, callback ){
 	        var input = JSON.parse(JSON.stringify( request.body ));
 
 	        var data = {
-		    nombre_usuario : input.nombre_usuario
+		    id_tipo_cliente : input.id_tipo_cliente,
+		    password_usuario : input.password_usuario,
+		    nombre_usuario : input.nombre_usuario,
+                    apellido_paterno_usuario : input.apellido_paterno_usuario,		    
+                    apellido_materno_usuario : input.apellido_materno_usuario,
+	            ciudad_usuario : input.ciudad_usuario,
+                    comuna_usuario : input.comuna_usuario,
+                    direccion_usuario : input.direccion_usuario,
+                    nro_direccion : input.nro_direccion,
+                    celular_usuario : input.celular_usuario,
+                    email_usuario : input.email_usuario,
+                    whatsap_usuario : input.whatsap_usuario,
+                    tipo_admin_usuario: input.tipo_admin_usuario,
+                    vigencia_usuario : input.vigencia_usuario
 		};
+
 
 		if (connection){
 
