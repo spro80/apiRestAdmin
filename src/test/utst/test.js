@@ -12,7 +12,12 @@ const expect = require('chai').expect;
 var assert    = require("chai").assert;
 
 
-var app = require('../../../app.js')
+
+//const usuarioModel = require("../../models/usuarioModels.js");
+var app = require('../../../app.js');
+const usuarioModel = require("../../models/usuarioModels.js");
+
+
 
 chai.use(chaiHttp);
 const url= 'http://localhost:3001';
@@ -20,26 +25,31 @@ const url= 'http://localhost:3001';
 
 //https://www.paradigmadigital.com/dev/testeo-api-rest-mocha-chai-http/
 
-//describe('get all usuarios: ',()=>{
-describe('get all usuarios: ', function(){
 
-	it('GET valida result OK', function(done){
+
+//describe('get all usuarios: ',()=>{
+describe('USUARIO - GET ALL', function(){
+
+	it('USUARIO - Valida GET ALL', function(done){
             
             chai.request( url )
                .get('/usuario')
 	       .end( function(err,res){    
-	           
-		   console.log(err);
-                   console.log("******");
-                   console.log(res.body);
-		   console.log("******");
-                   console.log( res.body.result );
-                   console.log( typeof( res.body.result ) );
-                   console.log( 200 );
-                   //assert.typeOf( res.body.result , 0 );
-		   assert.equal( res.body.result , 0, "Result incorrecto" );    
-                   //expect( res.body.result ).to.have.status(200);
-		   //assert.expect('Content-Type', /json/)		       
+	          
+		   if( err != null ){
+		       console.log("ERROR: "+err);
+		   
+		   }else{
+
+		       console.log("\n");
+		       console.log("**********INIT - GET ALL USUARIO********");
+
+		       assert.equal( res.status , 200, "Valor obtenido es"+ res.status +"y se esperaba un 200" );
+		       assert.equal( res.body.result , 0 , "Valo obtenido es"+ res.body.result +"y se esperaba un 0");
+
+		       console.log("**********END - GET ALL USUARIO********\n");
+
+		   }
 
 		   done();
 								
@@ -51,26 +61,169 @@ describe('get all usuarios: ', function(){
 
 
 
-describe('Insert Usuario: ',()=>{
 
-    it('Insert valida insert usuario', (done) => {
+describe('USUARIO - GET Usuario By ID', function(){
+    
+    it('USUARIO - Valida usuario por id_usuario', function(done){
+    	
+        chai.request(url)
+	    .get('/usuario/14515778')
+	    .end( function(err,res){		
+                
+
+		if( err ){
+ 		    console.log("ERROR: "+err);
+
+		}else{
+
+	            console.log("\n");		
+                    console.log("**********INIT - GET USUARIO BY ID********");
+
+                    //console.log( res.body );
+                    //console.log( res );
+                    assert.equal( res.status , 200 );
+                    assert.equal( res.body.result , 0 );
+
+                    assert.equal( res.body.data_usuario[0].id_usuario , "14515778" );
+                    assert.equal( res.body.data_usuario[0].id_tipo_cliente , 1 );
+                    assert.equal( res.body.data_usuario[0].rut_completo_usuario , "145157781" );
+                    assert.equal( res.body.data_usuario[0].password_usuario , "123456" );
+                    assert.equal( res.body.data_usuario[0].digito_rut_usuario , "1" );
+                    assert.equal( res.body.data_usuario[0].nombre_usuario , "daviddddd" );
+                    assert.equal( res.body.data_usuario[0].apellido_paterno_usuario , "diaz" );
+                    assert.equal( res.body.data_usuario[0].apellido_materno_usuario , "sierra" );
+                    assert.equal( res.body.data_usuario[0].ciudad_usuario , "santiago" );
+                    assert.equal( res.body.data_usuario[0].comuna_usuario , "santiago" );
+                    assert.equal( res.body.data_usuario[0].direccion_usuario , "fray camilo henriquez 190" );
+                    assert.equal( res.body.data_usuario[0].nro_direccion , null );
+                    assert.equal( res.body.data_usuario[0].celular_usuario , "94298318" );
+                    assert.equal( res.body.data_usuario[0].email_usuario , null );
+	            assert.equal( res.body.data_usuario[0].whatsap_usuario , "+56994298318" );
+		    assert.equal( res.body.data_usuario[0].tipo_admin_usuario , 1 );
+		    assert.equal( res.body.data_usuario[0].vigencia_usuario , 1 );
+
+		    console.log("**********END - GET USUARIO BY ID********");
+
+                }
+		
+		done();
+
+	    });
+
+    });
+
+});
+
+
+
+
+
+describe('USUARIO: Insert Usuario: ', function(){
+
+    let jsonInsert = { 
+                        id_usuario:"15123456" , 
+	                id_tipo_cliente: 1, 
+	                rut_completo_usuario:"151234567", 
+	                password_usuario:"808080", 
+	                digito_rut_usuario:7, 
+	                nombre_usuario:"juan", 
+	                apellido_paterno_usuario:"diaz", 
+	                apellido_materno_usuario:"muñoz", 
+	                ciudad_usuario:"santiago", 
+	                comuna_usuario:"santiago", 
+	                direccion_usuario:"avda providencia", 
+	                nro_direccion:1500, 
+	                celular_usuario:"89194282", 
+	                email_usuario:"jdiaz@gmail.com", 
+	                whatsap_usuario:"56989194282", 
+	                tipo_admin_usuario:1, 
+	                vigencia_usuario:1 
+                    };
+    
+
+    it('USUARIO: Valida Insert del Usuario', function(done){
         chai.request(url)
 	    .post('/usuario/insert')
-	    .send({ id_usuario:"15123456" , id_tipo_cliente: 1, rut_completo_usuario:"151234567", password_usuario:"808080", digito_rut_usuario:7, nombre_usuario:"juan", apellido_paterno_usuario:"diaz", apellido_materno_usuario:"muñoz", ciudad_usuario:"santiago", comuna_usuario:"santiago", direccion_usuario:"avda providencia", nro_direccion:1500, celular_usuario:"89194282", email_usuario:"jdiaz@gmail.com", whatsap_usuario:"56989194282", tipo_admin_usuario:1, vigencia_usuario:1  })
+	    .send( jsonInsert )
 	    .end( function(err,res){
-					
-                console.log(res.body)
-	        //expect(res).to.have.status(200);
-		console.log("++++++++++++++++++++");
-                console.log( res.body.result  );
-		console.log("++++++++++++++++++++");
-		assert.equal( res.body.result ,0, "Result incorrecto" );
+			
+                if( err ){
+	            console.log("ERROR: "+err);
+
+	        }else{
+
+		   console.log("\n");
+                   console.log("**********INIT - INSERT USUARIO********");
+
+                   assert.equal( res.status , 200 );
+	           assert.equal( res.body.result , 0 );
+
+	           console.log("**********END - INSERT USUARIO********");
+
+	        }
 
 	        done();
 
             });
     });
 });
+
+
+
+
+
+/*
+describe('delete the country with id 1: ',()=>{
+
+    it('should delete the country with id 1', (done) => {
+        
+        chai.request(url)
+	    .get('/usuario')
+	    .end( function(err,res){
+
+		console.log("--------");    
+                console.log(res.body);
+		console.log("--------");
+
+		//assert.equal( res.body.result ,0, "Result incorrecto" );
+
+		assert.equal( 0 ,0, "Result incorrecto" );
+
+
+
+		//expect(res.body).to.have.lengthOf(2);
+		//expect(res).to.have.status(200);
+
+		
+		chai.request(url)
+		    .get('/usuario/deleteId/14515778')
+	            .end( function(err,res){
+		    //.end( function(err,res){
+
+		        //console.log(res.body);
+			//expect(res).to.have.status(200);
+			chai.request(url)
+ 			    .get('/usuario')
+			    .end( function(err,res){
+
+			        console.log(res.body);
+				expect(res.body).to.have.lengthOf(1);
+
+				expect(res.body[0]).to.have.property('id_usuario').to.be.equal(0);
+				expect(res).to.have.status(200);
+				done();
+
+			});
+
+                    });
+
+            });
+	 
+    });
+
+});
+*/
+
 
 
 
