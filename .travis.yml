@@ -5,6 +5,8 @@ node_js:
 install:
         - npm install
 script:
-        - cd /src/test/utst
-        - mocha test
+        - echo "iniciando test"
+        - sudo chmod +x test.sh
+        - ./test.sh
+        - echo "finalizando test"
 
