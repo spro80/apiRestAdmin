@@ -5,8 +5,8 @@ node_js:
 install:
         - npm install
 script:
-        - echo "iniciando test"
+        - echo "[.travis.yml] Iniciando ejecucion de test.sh"
         - sudo chmod +x test.sh
         - ./test.sh
-        - echo "finalizando test"
+        - echo "[.travis.yml] Finalizando ejecucion de test.sh"
 
