@@ -1,5 +1,5 @@
-echo "Iniciando en ejecucion de test"
+echo "[test.sh] Iniciando ejecucion con mocha utst.sh"
 cd src/test/utst
 npm install
 mocha utst.js
-echo "Saliendo den ejecucion de test"
+echo "Saliendo de ejecucion de mocha utst.sh"
