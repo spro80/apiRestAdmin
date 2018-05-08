@@ -2,7 +2,7 @@
   "name": "utst",
   "version": "1.0.0",
   "description": "",
-  "main": "testExampleMochaChai.js",
+  "main": "utst.js",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.1.2",
