@@ -10,3 +10,7 @@ script:
         - ./test.sh
         - echo "[.travis.yml] Finalizando ejecucion de test.sh"
 
+deploy:
+          provider: heroku
+          api_key:
+                        secure: "b45145e6-8c78-46ed-bb0d-46b8768ff133"

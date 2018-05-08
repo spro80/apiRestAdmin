@@ -61,7 +61,7 @@ describe('USUARIO: Insert Usuario: ', function(){
 	                     console.log("ERROR: "+err);
  
 		         }else{
-                             console.log("\n");
+                             //console.log("\n");
                              console.log("**********INIT - INSERT USUARIO********");
 		             console.log( "res.status: "+res.status );
                              assert.equal( res.status , 200 );
@@ -106,7 +106,7 @@ describe('USUARIO: Editar Usuario: ', function(){
                         if( err ){
                             console.log("ERROR: "+err);
                         }else{
-                            console.log("\n");
+                            //console.log("\n");
                             console.log("**********INIT - EDIT USUARIO********");
                             console.log( "res.status: "+res.status );
                             assert.equal( res.status , 200 );
@@ -136,7 +136,7 @@ describe('USUARIO - DELETE', function(){
 		    console.log("ERROR: "+err);
 
                 }else{
-                    console.log("\n");
+                    //console.log("\n");
 	            console.log("**********INIT - DELETE USUARIO");
                     console.log( "res.status: "+res.status );
                     assert.equal( res.status , 200, "Valor obtenido es"+ res.status +"y se esperaba un 200" );
@@ -171,7 +171,7 @@ describe('USUARIO - GET ALL', function(){
 		   
 		   }else{
 
-		       console.log("\n");
+		       //console.log("\n");
 		       console.log("**********INIT - GET ALL USUARIO********");
                        console.log( "res.status: "+res.status );
 		       assert.equal( res.status , 200, "Valor obtenido es"+ res.status +"y se esperaba un 200" );
@@ -205,7 +205,7 @@ describe('USUARIO - GET Usuario By ID', function(){
 
 		}else{
 
-	            console.log("\n");		
+	            //console.log("\n");		
                     console.log("**********INIT - GET USUARIO BY ID********");
                     console.log( "res.status: "+res.status );
                     //console.log( res.body );
