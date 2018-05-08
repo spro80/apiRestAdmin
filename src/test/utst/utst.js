@@ -26,7 +26,7 @@ describe("TEST ConfigurationLog", function(){
 	let expectedSetLogLevel = conf.setLogLevel("INFO");
 
 	//Assert
-        assert.equal( "INFO"  , expectedSetLogLevel );
+        assert.equal( "INFOZZZ"  , expectedSetLogLevel );
     });
 
 
@@ -40,7 +40,7 @@ describe("TEST ConfigurationLog", function(){
 	conf.setLogLevel("DEBUG");
    
 	//Assert
-        assert.equal( "DEBUG", conf.getLogLevel() );
+        assert.equal( "DEBUGZZZ", conf.getLogLevel() );
     });
 
 
