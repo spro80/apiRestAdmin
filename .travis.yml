@@ -10,7 +10,7 @@ script:
         - ./test.sh
         - echo "[.travis.yml] Finalizando ejecucion de test.sh - prueba 19"
 
-before_deploy: "echo 'ready?'"          
+before_deploy: "echo ---*******---  'ready?'"          
 deploy:
         provider: heroku
         api_key:
