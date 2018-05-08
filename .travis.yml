@@ -5,12 +5,14 @@ node_js:
 install:
         - npm install
 script:
-        - echo "[.travis.yml] Iniciando ejecucion de test.sh - prueba 14"
+        - echo "[.travis.yml] Iniciando ejecucion de test.sh - prueba 16"
         - sudo chmod +x test.sh
         - ./test.sh
-        - echo "[.travis.yml] Finalizando ejecucion de test.sh - prueba 14"
+        - echo "[.travis.yml] Finalizando ejecucion de test.sh - prueba 16"
 
 deploy:
-          provider: heroku
-          api_key:
-                        secure: "b45145e6-8c78-46ed-bb0d-46b8768ff133"
+        provider: heroku
+        api_key:
+            secure: "b45145e6-8c78-46ed-bb0d-46b8768ff133"
+        app:
+            master: apirestadminnode 
