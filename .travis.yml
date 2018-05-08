@@ -5,10 +5,10 @@ node_js:
 install:
         - npm install
 script:
-        - echo "[.travis.yml] Iniciando ejecucion de test.sh"
+        - echo "[.travis.yml] Iniciando ejecucion de test.sh - prueba 14"
         - sudo chmod +x test.sh
         - ./test.sh
-        - echo "[.travis.yml] Finalizando ejecucion de test.sh"
+        - echo "[.travis.yml] Finalizando ejecucion de test.sh - prueba 14"
 
 deploy:
           provider: heroku
