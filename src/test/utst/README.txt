@@ -13,4 +13,4 @@ sudo apt-get install mocha
 #EJECUTAR TEST UNITARIOS:  USUARIO
 #DESCRIPCION:              Para ejecutar los test que prueban el codigo de manera unitaria, se debe ejecutar el siguiente comando:
 
-ddiaz@ddiaz-Inspiron-5567:/var/www/html/apiRestAdmin/src/test/utst$ mocha utst.js
+ddiaz@ddiaz-Inspiron-5567:/var/www/html/apiRestAdmin/src/test/utst$ npm test
