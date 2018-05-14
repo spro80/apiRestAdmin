@@ -26,4 +26,9 @@ npm install node-fetch --save-dev
 #EJECUTAR TEST API REST:  USUARIO
 #DESCRIPCION:             Para ejecutar las pruebas del API REST USUARIO, se debe ejecutar el siguiente comando:
 
+
+ddiaz@ddiaz-Inspiron-5567:/var/www/html/apiRestAdmin/src/test/testApiRest$ npm test
+
+o
+
 ddiaz@ddiaz-Inspiron-5567:/var/www/html/apiRestAdmin/src/test/testApiRest$ mocha test.js
